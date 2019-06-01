@@ -14,6 +14,8 @@ for (let i = 0; i < MESSAGE.length; i += 1) {
   encoded += MESSAGE[i].charCodeAt(0).toString(2);
 }
 
+encoded = "0" + encoded;
+
 console.error(encoded);
 
 let encodedMessage = "";
