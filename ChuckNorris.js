@@ -1,27 +1,25 @@
-/**
- * Auto-generated code below aims at helping you parse
- * the standard input according to the problem statement.
- **/
-
 const MESSAGE = readline();
-
-// Write an action using console.log()
-// To debug: console.error('Debug messages...');
 
 let encoded = "";
 
-for (let i = 0; i < MESSAGE.length; i += 1) {
-  encoded += MESSAGE[i].charCodeAt(0).toString(2);
+function getCharAsBinary(char) {
+  let bin = char.charCodeAt(0).toString(2);
+
+  if (bin.length < 7) {
+    for (let i = bin.length; i < 7; i += 1) {
+      bin = "0" + bin;
+    }
+  }
+  return bin;
 }
 
-encoded = "0" + encoded;
-
-console.error(encoded);
+for (let i = 0; i < MESSAGE.length; i += 1) {
+  encoded += getCharAsBinary(MESSAGE[i]);
+}
 
 let encodedMessage = "";
 
-for (let i = 0; i < encoded.length - 1; i += 1) {
-  console.error(encodedMessage);
+for (let i = 0; i < encoded.length; i += 1) {
   let doneLooking = false;
   if (encoded[i] == "0") {
     encodedMessage += "00 ";
@@ -44,6 +42,8 @@ for (let i = 0; i < encoded.length - 1; i += 1) {
       }
 
       encodedMessage += stringToAdd + " ";
+    } else {
+      encodedMessage += "0 ";
     }
   } else {
     encodedMessage += "0 ";
