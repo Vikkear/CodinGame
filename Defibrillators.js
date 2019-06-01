@@ -24,7 +24,7 @@ let descriptionOfClosest;
 for (let i = 0; i < N; i++) {
   const DEFIB = readline();
 
-  // Split DEFIB seperated by ";", [4] = Longitude, [5] = Latitude
+  // Split DEFIB seperated by ";", [1] = description needed for answer, [4] = Longitude, [5] = Latitude
   let defibSplit = DEFIB.split(";");
   let newDistance = calcDistance(LON, LAT, defibSplit[4], defibSplit[5]);
 
@@ -35,8 +35,5 @@ for (let i = 0; i < N; i++) {
     descriptionOfClosest = defibSplit[1];
   }
 }
-
-// Write an action using console.log()
-// To debug: console.error('Debug messages...');
 
 console.log(descriptionOfClosest);
