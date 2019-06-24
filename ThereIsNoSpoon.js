@@ -7,20 +7,10 @@ for (let i = 0; i < height; i++) {
   lineArr[i] = line;
 }
 
-lineArr[height] = "";
+lineArr[height] = ""; // To avoid crash
 
 let x1, x2, x3; // X coordinates used
 let y1, y2, y3; // Y coordinates used
-let amountOfNodes = 0;
-let map = {};
-
-// Get amount of nodes
-lineArr
-  .join("")
-  .split("")
-  .forEach(e => (map[e] = (map[e] || 0) + 1));
-
-amountOfNodes = map[0];
 
 for (let i = 0; i < height; i++) {
   for (let j = 0; j < width; j++) {
@@ -71,5 +61,3 @@ for (let i = 0; i < height; i++) {
     }
   }
 }
-
-// Three coordinates: a node, its right neighbor, its bottom neighbor
